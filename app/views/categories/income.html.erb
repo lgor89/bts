@@ -1,0 +1,5 @@
+<% @category.each do |i| %>
+  <% if i.cat_type =="income" %>
+  <p > <%= i.name %> - <%=i.summ %></p>
+<% end %>
+<% end %>

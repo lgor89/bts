@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= @user.name %> user profile</title>
+ </head>
+  <body>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4><%= @user.name %> user profile</h3>
+  </div>
+</div>
+
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>
+        <div class="col-sm-4">
+          <p>Name:
+          </p>
+        </div>
+        </th>
+        <th><div class="col-sm-4">
+          <p>Income:</p>
+          </div>
+        </th>
+
+        <th><div class="col-sm-4">
+          <p>Expens:</p>
+          </div>
+        </th>
+
+        <th><div class="col-sm-4">
+          <p>Data:</p>
+          </div>
+        </th>
+      </tr>
+    </thead>
+<% @user.category.each do |i| %>
+    <tbody>
+      <tr>
+        <td><div class="col-sm-4">
+          <p> <%= i.name %> </p>
+          </div>
+        </td>
+        <td><div class="col-sm-4">
+          <p> <%= i.cat_type == "income"?(i.summ) : "---" %> </p>
+          </div>
+        </td>
+        <td><div class="col-sm-4">
+          <%= i.cat_type == "expense"?(i.summ) : "---" %>
+          </div>
+        </td>
+        <td><div class="col-sm-4">
+          <%= i.updated_at.to_date %>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+<% end %>
+  </table>
+</div>
+  </body>
+</html>
+
+
+
