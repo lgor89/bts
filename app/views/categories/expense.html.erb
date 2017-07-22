@@ -1,5 +1,37 @@
+<div class="container">
+  <div class="col-sm-6">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>
+        <div class="col-sm-4">
+          <p>Name:
+          </p>
+        </div>
+        </th>
+        <th><div class="col-sm-4">
+          <p>Amount:</p>
+          </div>
+        </th>
+      </tr>
+    </thead>
 <% @category.each do |i| %>
   <% if i.cat_type =="expense" %>
-  <p > <%= i.name %> - <%=i.summ %></p>
+    <tbody>
+      <tr>
+        <td><div class="col-sm-4">
+            <p > <%= i.name %></p>
+          </div>
+        </td>
+        <td><div class="col-sm-4">
+            <p > <%= i.summ %></p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
 <% end %>
 <% end %>
+  </table>
+<%= link_to "Add new category", new_category_path, class:"btn btn-info", role:"button"%>
+</div>
+</div>
