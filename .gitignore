@@ -14,7 +14,7 @@
 /.bundle
 /vendor/bundle/
 /vendor/ruby/
-/config/*.yml
+/config/database.yml
 
 # minimal Rails specific artifacts
 /log/*
