@@ -33,8 +33,20 @@ class CategoriesController < ApplicationController
     Category.find(params[:id]).destroy
       redirect_to "/users/#{current_user[:id]}"
   end
+  def edit
+    @category= Category.find(params[:id])
+    render 'edit'
+  end
+  def update
+    @category= Category.find(params[:id])
+    @category.update_attributes(update_params)
+    redirect_to "/users/#{current_user[:id]}"
+  end
   private
   def category_params
     params.require(:category).permit(:name, :cat_type, :summ).merge(user_id: current_user.id)
+  end
+  def update_params
+    params.require(:category).permit(:name, :summ)
   end
 end

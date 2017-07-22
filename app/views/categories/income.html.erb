@@ -31,6 +31,9 @@
                   <p >
     <%= link_to "Remove",category_path(i.id), method: :delete, class:"btn btn-info", role:"button"%>
                   </p>
+                  <p >
+    <%= link_to "Edit",edit_category_path(i.id), class:"btn btn-info", role:"button"%>
+                  </p>
                 </div>
               </td>
             </tr>
