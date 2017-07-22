@@ -19,6 +19,7 @@ class CategoriesController < ApplicationController
       redirect_to '/categories/new'
     else
     @category = User.find(current_user.id).category
+    @k = 0
     end
   end
   def expense
@@ -27,6 +28,10 @@ class CategoriesController < ApplicationController
     else
     @category = User.find(current_user.id).category
     end
+  end
+  def destroy
+    Category.find(params[:id]).destroy
+      redirect_to "/users/#{current_user[:id]}"
   end
   private
   def category_params

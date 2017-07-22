@@ -27,6 +27,12 @@
                   <p > <%= i.summ %></p>
                 </div>
               </td>
+              <td><div class="col-sm-4">
+                  <p >
+    <%= link_to "Remove",category_path(i.id), method: :delete, class:"btn btn-info", role:"button"%>
+                  </p>
+                </div>
+              </td>
             </tr>
           </tbody>
         <% end %>
