@@ -6,35 +6,7 @@
   <body>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <div class="container">
-          <div class="col-sm-1">
-            <h4><%= @user.name %> user profile</h3>
-          </div>
-          <div class="col-sm-1">
-            <h4>Search by:</h3>
-          </div>
-          <div class="col-sm-4">
-            <h4>category name:</h3>
-            <h4><%= form_for(@user) do |f| %></h3>
-              <%= f.text_field :name %>
-      <%= f.submit "search", class: "btn btn-primary" %>
-            <% end %>
-          </div>
-          <div class="col-sm-6">
-            <h4>data period:</h3>
-            <h4><%= form_for(@user) do |f| %></h3>
-              <%= f.label :from %>
-                  <% a=[] %>
-                  <% @category.each{|i| a << [i.created_at.to_date.to_s,i.created_at.to_date.to_s]}%>
-                  <%= f.select(:date_from,a) %>
-              <%= f.label :to %>
-                  <% b=[] %>
-                  <% @category.each{|i| b << [i.created_at.to_date.to_s,i.created_at.to_date.to_s]}%>
-                  <%= f.select(:date_to,b) %>
-      <%= f.submit "search", class: "btn btn-primary" %>
-            <% end %>
-          </div>
-        </div>
+            <h4> Searching result</h3>
       </div>
     </div>
 
@@ -65,6 +37,7 @@
       </tr>
     </thead>
 <% @category.each do |i| %>
+  <% if i.name == @name %>
     <tbody>
       <tr>
         <td><div class="col-sm-4">
@@ -85,7 +58,32 @@
         </td>
       </tr>
     </tbody>
+  <% end %>
 <% end %>
+<% until @date_array == nil %>
+<% @date_array.each do |i| %>
+    <tbody>
+      <tr>
+        <td><div class="col-sm-4">
+          <p> <%= i.name %> </p>
+          </div>
+        </td>
+        <td><div class="col-sm-4">
+          <p> <%= i.cat_type == "income"?(i.summ) : "---" %> </p>
+          </div>
+        </td>
+        <td><div class="col-sm-4">
+          <%= i.cat_type == "expense"?(i.summ) : "---" %>
+          </div>
+        </td>
+        <td><div class="col-sm-4">
+          <%= i.updated_at.to_date %>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+  <% end %>
   </table>
 </div>
   </body>

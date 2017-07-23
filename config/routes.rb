@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :categories
   get '/income', to: "categories#income"
   get '/expense', to: "categories#expense"
+  get '/search', to: "users#update"
 end
