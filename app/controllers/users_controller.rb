@@ -18,9 +18,10 @@ class UsersController < ApplicationController
     @name=params[:user][:name]
     @category = @user.category
     @from = params[:user][:date_from]
-    until @from == nil
+    unless @from == nil
     @to = params[:user][:date_to]
     @date_array = []
+    binding.pry
     @category.each do |i|
      if @from<= i.created_at.to_date.to_s
      begin
