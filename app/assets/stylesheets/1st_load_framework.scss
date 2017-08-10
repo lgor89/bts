@@ -1,6 +1,12 @@
 // import the CSS framework
 
 // make all images responsive by default
+#calendar_from{
+  display:none;
+}
+#calendar_to{
+  display:none;
+}
 .dropdown a:link{
   color: #a39f9f;
   text-decoration: none;

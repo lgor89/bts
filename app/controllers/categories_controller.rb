@@ -9,10 +9,18 @@ class CategoriesController < ApplicationController
   def create
     @category =Category.new(category_params)
     if @category.save
-      redirect_to "/users/#{current_user[:id]}"
+      if session[:date_create].empty?
+        redirect_to "/users/#{current_user[:id]}"
+      else
+        @category.update_attributes(updated_at: session[:date_create])
+        redirect_to "/users/#{current_user[:id]}"
+      end
     else
       render 'new'
     end
+  end
+  def get_category_date
+    session[:date_create] = params[:create_date]
   end
   def income
     if Category.count == 0

@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get '/income', to: "categories#income"
   get '/expense', to: "categories#expense"
   get '/search', to: "users#update"
+  post 'users/:id', to: "users#get_date", as: :get_date
+  post 'categories/new', to: "categories#get_category_date", as: :get_category_date
 end
