@@ -19,7 +19,7 @@
 # minimal Rails specific artifacts
 /log/*
 /tmp/*
-
+/config/*.yml
 # add /config/database.yml if it contains passwords
 # /config/database.yml
 
