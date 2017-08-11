@@ -1,0 +1,50 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>
+          <div class="col-sm-5">
+            <p>Category name:
+            </p>
+          </div>
+        </th>
+        <th><div class="col-sm-3">
+            <p>Income:</p>
+          </div>
+        </th>
+
+        <th><div class="col-sm-3">
+            <p>Expens:</p>
+          </div>
+        </th>
+
+        <th><div class="col-sm-3">
+            <p>Data:</p>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <% @category.sort_by do |i| %>
+      <tbody>
+        <tr>
+          <td><div class="col-sm-3">
+              <p> <%= i.name %> </p>
+            </div>
+          </td>
+          <td><div class="col-sm-3">
+              <p> <%= i.cat_type == "income"?(i.summ) : "---" %> </p>
+            </div>
+          </td>
+          <td><div class="col-sm-3">
+              <%= i.cat_type == "expense"?(i.summ) : "---" %>
+            </div>
+          </td>
+          <td><div class="col-sm-5">
+              <%= i.updated_at.to_date %>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>

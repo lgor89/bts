@@ -1,0 +1,21 @@
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="from" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Select date from</h4>
+        </div>
+        <div class="modal-body">
+          <%= month_calendar do |date| %>
+            <%= link_to date.day,get_date_path(date_from: date), method: :post %>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
